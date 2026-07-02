@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Armarior — Bespoke Luxury Furnishing & Interior Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0a0b;
+    --charcoal:#151417;
+    --panel:#1b191c;
+    --gold:#c6a24d;
+    --gold-light:#e8cf8b;
+    --gold-dim:#8a7440;
+    --ivory:#f2ead9;
+    --ivory-dim:#b8ae9a;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--black);
+    color:var(--ivory);
+    font-family:'Jost', sans-serif;
+    font-weight:300;
+    letter-spacing:0.02em;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    letter-spacing:0.03em;
+  }
+
+  a{color:inherit; text-decoration:none;}
+
+  .eyebrow{
+    font-size:0.7rem;
+    letter-spacing:0.35em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:500;
+  }
+
+  .gold-rule{
+    width:64px;
+    height:1px;
+    background:linear-gradient(90deg, var(--gold), transparent);
+    margin:18px 0;
+  }
+  .gold-rule.center{margin:18px auto;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(198,162,77,0.10), transparent 60%),
+      linear-gradient(180deg, #0a0a0b 0%, #0e0d0f 100%);
+    padding:40px 24px;
+    overflow:hidden;
+  }
+
+  .hero::before, .hero::after{
+    content:"";
+    position:absolute;
+    top:0; bottom:0;
+    width:50%;
+    background:
+      linear-gradient(180deg, #131214 0%, #0a0a0b 100%);
+    border-color:var(--gold-dim);
+    z-index:2;
+    animation: doorOpen 1.6s cubic-bezier(.77,0,.18,1) forwards;
+    box-shadow: 0 0 60px rgba(0,0,0,0.6);
+  }
+  .hero::before{
+    left:0;
+    transform-origin:left center;
+    border-right:1px solid var(--gold-dim);
+  }
+  .hero::after{
+    right:0;
+    transform-origin:right center;
+    border-left:1px solid var(--gold-dim);
+  }
+  @keyframes doorOpen{
+    0%{ transform: scaleX(1); }
+    100%{ transform: scaleX(0); }
+  }
+
+  .hero-inner{
+    position:relative;
+    z-index:1;
+    max-width:720px;
+    opacity:0;
+    animation: fadeUp 1.2s ease-out 1.5s forwards;
+  }
+  @keyframes fadeUp{
+    from{opacity:0; transform:translateY(18px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  .crest{
+    width:46px; height:46px;
+    margin:0 auto 22px;
+    border:1px solid var(--gold);
+    transform:rotate(45deg);
+    position:relative;
+  }
+  .crest::before{
+    content:"";
+    position:absolute;
+    inset:7px;
+    border:1px solid var(--gold-dim);
+  }
+
+  .wordmark{
+    font-size:clamp(2.8rem, 8vw, 5.2rem);
+    color:var(--ivory);
+    letter-spacing:0.12em;
+    line-height:1;
+  }
+  .wordmark em{
+    font-style:normal;
+    color:var(--gold-light);
+  }
+
+  .tagline{
+    margin-top:14px;
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.35rem;
+    color:var(--ivory-dim);
+    letter-spacing:0.06em;
+    font-style:italic;
+  }
+
+  .hero-desc{
+    margin-top:26px;
+    font-size:0.98rem;
+    line-height:1.85;
+    color:var(--ivory-dim);
+    font-weight:300;
+  }
+
+  .cta-row{
+    margin-top:38px;
+    display:flex;
+    gap:18px;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  .btn{
+    display:inline-block;
+    padding:14px 34px;
+    font-size:0.75rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    border:1px solid var(--gold);
+    color:var(--gold-light);
+    transition:all .35s ease;
+  }
+  .btn:hover{
+    background:var(--gold);
+    color:var(--black);
+  }
+  .btn.filled{
+    background:var(--gold);
+    color:var(--black);
+  }
+  .btn.filled:hover{
+    background:var(--gold-light);
+    border-color:var(--gold-light);
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section{
+    padding:100px 24px;
+    position:relative;
+  }
+  .section-head{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto 56px;
+  }
+  .section-head h2{
+    font-size:clamp(2rem, 4vw, 2.8rem);
+    color:var(--ivory);
+    margin-top:10px;
+  }
+  .section-head p{
+    margin-top:16px;
+    color:var(--ivory-dim);
+    line-height:1.8;
+    font-size:0.95rem;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{
+    background:var(--charcoal);
+    border-top:1px solid rgba(198,162,77,0.15);
+    border-bottom:1px solid rgba(198,162,77,0.15);
+  }
+  .about-grid{
+    max-width:900px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:36px;
+    text-align:center;
+  }
+  .about-grid .stat{
+    padding:24px 12px;
+    border:1px solid rgba(198,162,77,0.18);
+  }
+  .about-grid .stat .num{
+    font-family:'Cormorant Garamond', serif;
+    font-size:2.4rem;
+    color:var(--gold-light);
+  }
+  .about-grid .stat .label{
+    margin-top:8px;
+    font-size:0.72rem;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--ivory-dim);
+  }
+
+  /* ---------- CONNECT ---------- */
+  .connect-grid{
+    max-width:920px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:20px;
+  }
+  .social-card{
+    border:1px solid rgba(198,162,77,0.25);
+    padding:34px 18px;
+    text-align:center;
+    transition:all .35s ease;
+    background:linear-gradient(180deg, rgba(198,162,77,0.03), transparent);
+  }
+  .social-card:hover{
+    border-color:var(--gold);
+    background:rgba(198,162,77,0.07);
+    transform:translateY(-4px);
+  }
+  .social-card .icon{
+    width:34px; height:34px;
+    margin:0 auto 16px;
+    color:var(--gold);
+  }
+  .social-card .icon svg{width:100%; height:100%; fill:currentColor;}
+  .social-card .name{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.2rem;
+    color:var(--ivory);
+    letter-spacing:0.04em;
+  }
+  .social-card .handle{
+    margin-top:4px;
+    font-size:0.72rem;
+    color:var(--ivory-dim);
+    letter-spacing:0.08em;
+  }
+
+  .website-strip{
+    max-width:920px;
+    margin:28px auto 0;
+    border:1px solid rgba(198,162,77,0.25);
+    padding:22px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .website-strip .label{
+    font-size:0.7rem;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--ivory-dim);
+  }
+  .website-strip .url{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.3rem;
+    color:var(--gold-light);
+  }
+
+  /* ---------- SHOWROOMS ---------- */
+  .showrooms{
+    background:var(--charcoal);
+    border-top:1px solid rgba(198,162,77,0.15);
+    border-bottom:1px solid rgba(198,162,77,0.15);
+  }
+  .showroom-grid{
+    max-width:900px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:28px;
+  }
+  .showroom-card{
+    border:1px solid rgba(198,162,77,0.25);
+    padding:38px 32px;
+    position:relative;
+  }
+  .showroom-card .eyebrow{margin-bottom:8px;}
+  .showroom-card h3{
+    font-size:1.7rem;
+    color:var(--ivory);
+  }
+  .showroom-card .info{
+    margin-top:18px;
+    font-size:0.9rem;
+    line-height:1.9;
+    color:var(--ivory-dim);
+  }
+  .showroom-card .info b{
+    color:var(--gold-light);
+    font-weight:400;
+  }
+
+  /* ---------- LEAD FORM ---------- */
+  .lead{
+    text-align:center;
+  }
+  .lead-box{
+    max-width:600px;
+    margin:0 auto;
+    border:1px solid var(--gold);
+    padding:56px 40px;
+    background:radial-gradient(ellipse at 50% 0%, rgba(198,162,77,0.08), transparent 70%);
+  }
+  .lead-box h2{
+    font-size:2.2rem;
+    color:var(--ivory);
+  }
+  .lead-box p{
+    margin-top:14px;
+    color:var(--ivory-dim);
+    font-size:0.92rem;
+    line-height:1.8;
+  }
+  .lead-box .btn{margin-top:28px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:50px 24px 36px;
+    text-align:center;
+    border-top:1px solid rgba(198,162,77,0.15);
+  }
+  footer .crest{width:30px; height:30px; margin-bottom:16px;}
+  footer .fmark{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.4rem;
+    letter-spacing:0.15em;
+    color:var(--ivory);
+  }
+  footer .fsub{
+    margin-top:6px;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    color:var(--ivory-dim);
+  }
+
+  @media (max-width:768px){
+    .about-grid{grid-template-columns:1fr;}
+    .connect-grid{grid-template-columns:repeat(2, 1fr);}
+    .showroom-grid{grid-template-columns:1fr;}
+    .website-strip{flex-direction:column; align-items:flex-start;}
+    .hero::before,.hero::after{display:block;}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="crest"></div>
+    <div class="eyebrow">Est. 1993 &nbsp;·&nbsp; Kuala Lumpur, Malaysia</div>
+    <h1 class="wordmark">ARMAR<em>I</em>OR</h1>
+    <div class="tagline">Bespoke Luxury Furnishing &amp; Interior Design</div>
+    <div class="gold-rule center"></div>
+    <p class="hero-desc">
+      For over three decades, Armarior has crafted opulent homes for those who
+      accept nothing less than mastery — Italian-inspired cabinetry, hand-finished
+      interiors, and turnkey luxury renovations built to become heirlooms.
+    </p>
+    <div class="cta-row">
+      <a href="#connect" class="btn filled">Connect With Us</a>
+      <a href="#enquire" class="btn">Begin Your Renovation</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="section-head">
+    <div class="eyebrow">The House of Armarior</div>
+    <h2>Crafted for the Discerning Few</h2>
+    <p>
+      Born from an Italian cabinetry legacy, Armarior is Malaysia's CIDB G7-certified
+      specialist in bespoke residential interiors, high-end fit-outs, and full palace-grade
+      home transformations — planned, fabricated, and installed under one roof.
+    </p>
+  </div>
+  <div class="about-grid">
+    <div class="stat">
+      <div class="num">30+</div>
+      <div class="label">Years of Craftsmanship</div>
+    </div>
+    <div class="stat">
+      <div class="num">G7</div>
+      <div class="label">CIDB Grade Certified</div>
+    </div>
+    <div class="stat">
+      <div class="num">100%</div>
+      <div class="label">Bespoke &amp; Turnkey</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONNECT -->
+<section id="connect">
+  <div class="section-head">
+    <div class="eyebrow">Follow the Craft</div>
+    <h2>Connect With Us</h2>
+    <p>Step inside our world of bespoke luxury — new projects, transformations, and
+      behind-the-scenes craftsmanship, across every platform.</p>
+  </div>
+
+  <div class="connect-grid">
+    <a class="social-card" href="https://www.facebook.com/ArmariorMY/" target="_blank" rel="noopener">
+      <div class="icon"><svg viewBox="0 0 24 24"><path d="M13.5 21v-7.5h2.5l.4-3H13.5V8.6c0-.87.24-1.46 1.5-1.46h1.6V4.5c-.28-.04-1.23-.12-2.34-.12-2.32 0-3.9 1.42-3.9 4.02v2.1H8v3h2.36V21h3.14z"/></svg></div>
+      <div class="name">Facebook</div>
+      <div class="handle">@ArmariorMY</div>
+    </a>
+    <a class="social-card" href="https://www.instagram.com/armarior.my/" target="_blank" rel="noopener">
+      <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.16.46.35 1.26.4 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.9 4.9 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.46.16-1.26.35-2.43.4-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.16-.46-.35-1.26-.4-2.43C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.24-1.97.4-2.43a4.9 4.9 0 0 1 1.15-1.77A4.9 4.9 0 0 1 5.59 1.8c.46-.16 1.26-.35 2.43-.4C9.29 1.34 9.67 1.33 12 1.33zm0 1.98c-3.15 0-3.5.01-4.74.07-.96.04-1.48.2-1.82.34-.46.18-.79.39-1.13.73-.34.34-.55.67-.73 1.13-.14.34-.3.86-.34 1.82-.06 1.24-.07 1.59-.07 4.74s.01 3.5.07 4.74c.04.96.2 1.48.34 1.82.18.46.39.79.73 1.13.34.34.67.55 1.13.73.34.14.86.3 1.82.34 1.24.06 1.59.07 4.74.07s3.5-.01 4.74-.07c.96-.04 1.48-.2 1.82-.34.46-.18.79-.39 1.13-.73.34-.34.55-.67.73-1.13.14-.34.3-.86.34-1.82.06-1.24.07-1.59.07-4.74s-.01-3.5-.07-4.74c-.04-.96-.2-1.48-.34-1.82a3 3 0 0 0-.73-1.13 3 3 0 0 0-1.13-.73c-.34-.14-.86-.3-1.82-.34-1.24-.06-1.59-.07-4.74-.07zm0 3.37a5.45 5.45 0 1 1 0 10.9 5.45 5.45 0 0 1 0-10.9zm0 1.98a3.47 3.47 0 1 0 0 6.94 3.47 3.47 0 0 0 0-6.94zm6.94-2.2a1.27 1.27 0 1 1-2.55 0 1.27 1.27 0 0 1 2.55 0z"/></svg></div>
+      <div class="name">Instagram</div>
+      <div class="handle">@armarior</div>
+    </a>
+    <a class="social-card" href="https://www.tiktok.com/@armarior" target="_blank" rel="noopener">
+      <div class="icon"><svg viewBox="0 0 24 24"><path d="M16.6 2h-3.2v13.4a2.9 2.9 0 1 1-2.05-2.77V9.3a6 6 0 1 0 5.25 5.95V8.6a7.9 7.9 0 0 0 4.6 1.48V6.85A4.6 4.6 0 0 1 16.6 2z"/></svg></div>
+      <div class="name">TikTok</div>
+      <div class="handle">@armarior</div>
+    </a>
+    <a class="social-card" href="https://www.youtube.com/@armarior9673" target="_blank" rel="noopener">
+      <div class="icon"><svg viewBox="0 0 24 24"><path d="M21.6 7.2s-.21-1.5-.86-2.16c-.82-.87-1.74-.87-2.16-.92C15.6 4 12 4 12 4h-.01s-3.6 0-6.58.12c-.42.05-1.34.05-2.16.92-.65.66-.86 2.16-.86 2.16S2.2 8.96 2.2 10.72v1.55c0 1.76.19 3.52.19 3.52s.21 1.5.86 2.16c.82.87 1.9.84 2.38.94 1.73.17 7.37.22 7.37.22s3.6-.01 6.58-.13c.42-.06 1.34-.06 2.16-.93.65-.66.86-2.16.86-2.16s.19-1.76.19-3.52v-1.55c0-1.76-.19-3.52-.19-3.52zM9.94 14.9V8.9l5.75 3-5.75 3z"/></svg></div>
+      <div class="name">YouTube</div>
+      <div class="handle">Armarior</div>
+    </a>
+  </div>
+
+  <div class="website-strip">
+    <div>
+      <div class="label">Official Website</div>
+      <div class="url">www.armarior.com.my</div>
+    </div>
+    <a class="btn" href="https://armarior.com.my" target="_blank" rel="noopener">Visit Site</a>
+  </div>
+</section>
+
+<!-- SHOWROOMS -->
+<section class="showrooms">
+  <div class="section-head">
+    <div class="eyebrow">Experience It In Person</div>
+    <h2>Our Showrooms</h2>
+    <p>Step into our showrooms to experience the finishes, materials, and craftsmanship firsthand.</p>
+  </div>
+  <div class="showroom-grid">
+    <div class="showroom-card">
+      <div class="eyebrow">Headquarters</div>
+      <h3>Armarior Balakong</h3>
+      <div class="gold-rule"></div>
+      <div class="info">
+        Lot 10, Jalan Perusahaan Utama,<br>
+        Perindustrian Selesa Jaya, 43300,<br>
+        Balakong, Selangor Darul Ehsan<br>
+        <b>Tel:</b> 011-8888 9398
+      </div>
+    </div>
+    <div class="showroom-card">
+      <div class="eyebrow">Showroom</div>
+      <h3>Armarior SS2</h3>
+      <div class="gold-rule"></div>
+      <div class="info">
+        Petaling Jaya, Selangor<br>
+        <b>Tel:</b> 017-882 6876
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD / ENQUIRY -->
+<section class="lead" id="enquire">
+  <div class="lead-box">
+    <div class="eyebrow">Reserve a Private Consultation</div>
+    <h2>Begin Your Transformation</h2>
+    <p>
+      Tell us about your space, and our design team will be in touch to arrange
+      a private consultation at one of our showrooms.
+    </p>
+    <!-- Google Form link to be added here -->
+    <a class="btn filled" href="https://forms.gle/bxmdJp6qc49Wqb7eA" target="_blank" rel="noopener">Submit Your Enquiry</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="crest"></div>
+  <div class="fmark">ARMARIOR</div>
+  <div class="fsub">Bespoke Luxury Furnishing &amp; Interior Design — Malaysia, Since 1993</div>
+</footer>
+
+</body>
+</html>
